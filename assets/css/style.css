@@ -1,0 +1,161 @@
+.container{
+	color: #fff;
+}
+.bio{
+	min-height: 20px; 
+}
+.card-text p{
+	color: #fff;
+}
+.card-img-top{
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+}
+.team-profile{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+}
+.card.card-cascade.narrower{
+	margin-top: 0;
+}
+.challenge-body{
+	
+}
+.team-name{
+	padding-top: 5px;
+}
+.card-text{
+	color: #fff;
+}
+.text{
+	margin: 0;
+	font-size: 15px;
+	font-weight: none;	
+}
+.hr{
+	margin: 3px;
+}
+.dark-color{
+	background-color: #666;
+}
+table.table td{
+	padding: 0;
+	margin: 0;
+}
+table.table td p{
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.table-dark td{
+	color: #fff;
+	padding: 0;
+}
+.table-img{
+	height:50px;
+	width:50px;
+	padding: 5px;
+	border-radius: 50%;
+}
+.nav-link{
+	padding-top: 15px;
+}
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: ;
+  pointer-events: ;
+  opacity: 10; 
+}
+[type=radio]:checked, 
+[type=radio]:not(:checked){
+  position: ;
+  pointer-events: ;
+  opacity: 10; 
+}
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: ;
+  pointer-events: ;
+  opacity: 10; 
+}
+[type=checkbox]:checked, 
+[type=checkbox]:not(:checked){
+  position: ;
+  pointer-events: ;
+  opacity: 10; 
+}
+.view-challenge{
+	margin-left: 35%;
+}
+.page-footer{
+	position: fixed;
+	bottom:0;
+}
+.alert {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+/**/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip-bottom {
+    top: 135%;
+    left: 50%;
+    margin-left: -60px;
+}
+.tooltip-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

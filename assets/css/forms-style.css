@@ -1,0 +1,22 @@
+/* Your custom styles */
+
+body {
+	background: url(http://sf.co.ua/14/07/wallpaper-493708.jpg);
+	background-size:cover;
+	position: relative;
+	}
+.login-main {
+	position: relative;
+	height: 100vh;
+}
+.home-x{
+	position:absolute;
+	height:100vh;
+	width:100%;
+	}
+	
+footer{position:relative}
+
+.login-now:hover {
+	cursor: pointer;
+}

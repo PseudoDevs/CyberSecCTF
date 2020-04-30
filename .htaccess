@@ -1,0 +1,109 @@
+RewriteEngine on
+
+Options +FollowSymLinks
+# -- Prevent Directory Browsing -- #
+Options -Indexes
+
+ErrorDocument 403 /includes/error_page/403.php
+ErrorDocument 404 /includes/error_page/404.php
+ErrorDocument 500 /includes/error_page/500.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !\.(ico|css|png|jpg|gif|js) [NC]
+
+#RewriteBase /
+DirectoryIndex /index.php
+
+#SET CUSTOM ErrorDocument
+<IfModule mod_rewrite.c>
+	ErrorDocument 403 /includes/error_page/403.php
+	ErrorDocument 404 /includes/error_page/404.php
+	ErrorDocument 500 /includes/error_page/500.php
+</IfModule>
+
+#Make friendly URL for challenges
+<IfModule mod_rewrite.c>
+	RewriteRule ^challenges$ /challenges/index.php [QSA,NC,L]
+	RewriteRule ^challenges/$ /challenges/index.php [QSA,NC,L]
+
+	RewriteRule ^challenges/([0-9]+)$ /challenges/view-challenges.php?id=$1 [QSA,NC,L]
+	RewriteRule ^challenges/([0-9]+)/$ /challenges/view-challenges.php?id=$1 [QSA,NC,L]
+
+	RewriteRule ^challenges/([0-9]+)/submit$ /challenges/submit-solution.php?id=$1 [QSA,NC,L]
+	RewriteRule ^challenges/([0-9]+)/submit/$ /challenges/submit-solution.php?id=$1 [QSA,NC,L]
+
+	RewriteRule ^challenges/([0-9]+)/solvers$ /challenges/solvers.php?id=$1 [QSA,NC,L]
+	RewriteRule ^challenges/([0-9]+)/solvers/$ /challenges/solvers.php?id=$1 [QSA,NC,L]
+
+	RewriteRule ^solution/([0-9]+)$ /challenges/solution.php?id=$1 [QSA,NC,L]
+	RewriteRule ^solution/([0-9]+)/$ /challenges/solution.php?id=$1 [QSA,NC,L]
+
+	RewriteRule ^challenger/invite$ /includes/function/challenges/invite.php [QSA,NC,L]
+</IfModule>
+
+#Make friendly URL in settings
+<IfModule mod_rewrite.c>
+	RewriteRule ^settings/information/edit$ /user/settings/information.php [QSA,NC,L]
+	RewriteRule ^settings/information/edit/$ /user/settings/information.php [QSA,NC,L]
+
+	RewriteRule ^settings/profile/edit$ /user/settings/profile.php [QSA,NC,L]
+	RewriteRule ^settings/profile/edit/$ /user/settings/profile.php [QSA,NC,L]
+
+	RewriteRule ^settings/password/edit$ /user/settings/change-password.php [QSA,NC,L]
+	RewriteRule ^settings/password/edit/$ /user/settings/change-password.php [QSA,NC,L]
+
+	RewriteRule ^settings/email/edit$ /user/settings/change-email.php [QSA,NC,L]
+	RewriteRule ^settings/email/edit/$ /user/settings/change-email.php [QSA,NC,L]
+
+	RewriteRule ^settings/loginactivity$ /user/settings/authentacation.php [QSA,NC,L]
+	RewriteRule ^settings/loginactivity/$ /user/settings/authentacation.php [QSA,NC,L]
+
+	RewriteRule ^settings/Authentacation$ /user/settings/2FAuthentacation.php [QSA,NC,L]
+	RewriteRule ^settings/Authentacation/$ /user/settings/2FAuthentacation.php [QSA,NC,L]
+
+	RewriteRule ^settings/security$ /user/settings/security.php [QSA,NC,L]
+	RewriteRule ^settings/security/$ /user/settings/security.php [QSA,NC,L]
+
+	RewriteRule ^settings/Deactivate$ /user/settings/Deactivate.php [QSA,NC,L]
+	RewriteRule ^settings/Deactivate/$ /user/settings/Deactivate.php [QSA,NC,L]
+</IfModule>
+
+#Make friendly URL for challenges
+<IfModule mod_rewrite.c>
+	RewriteRule ^user/sign_in$ /user/Login.php [QSA,NC,L]
+	RewriteRule ^user/sign_in/$ /user/Login.php [QSA,NC,L]
+
+	RewriteRule ^user/sign_up$ /user/Signup.php [QSA,NC,L]
+	RewriteRule ^user/sign_up/$ /user/Signup.php [QSA,NC,L]
+
+	RewriteRule ^user/recovery$ /user/forgot.php [QSA,NC,L]
+	RewriteRule ^user/recovery/$ /user/forgot.php [QSA,NC,L]
+
+	RewriteRule ^login/authentacation/confirmation$ /user/authentacation/authentacation.php [QSA,NC,L]
+	RewriteRule ^login/authentacation/backup$ /user/authentacation/backup.php [QSA,NC,L]
+	RewriteRule ^login/authentacation/reset$ /user/authentacation/reset.php [QSA,NC,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^/blog/([0-9]+)/([^\/]+)(\/|)/$  /blog/index.php?id=$1&blog_url=$2   [QSA,NC,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteRule ^captcha.png$ /recaptcha/captcha.php [QSA,NC,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^\/]+)(\/|)$ /user/profile.php?id=$1 [QSA,NC,L]
+</IfModule>
+
+RedirectMatch permanent ^(/challenges)$ http://www.ph-hitachi.com.ph/challenges/
+RedirectMatch permanent ^(/user/login.php)$  http://www.ph-hitachi.com.ph/user/sign_in
+RedirectMatch permanent ^(/user/signup.php|signup|sign_up)$ http://www.ph-hitachi.com.ph/user/sign_up
+RedirectMatch permanent ^(/user/forgot.php|/forgot.php|/recovery)$ http://www.ph-hitachi.com.ph/login/authentacation/confirmation
+RedirectMatch permanent ^(/reset.php)$ http://www.ph-hitachi.com.ph/user/recovery
+RedirectMatch permanent ^(/user/settings/|/setting)$ http://www.ph-hitachi.com.ph/settings/information/edit
